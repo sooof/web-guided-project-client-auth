@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useHistory } from 'react';
 import axios from 'axios';
 
 class Login extends React.Component {
@@ -27,6 +27,7 @@ class Login extends React.Component {
       .then(resp=> {
         //2. if the call is successful: save token in localStorage
         localStorage.setItem('token', resp.data.token);
+        console.log(this.props);
       })
       .catch(err=> {
         //3. if the call is unsuccessful: console.log error

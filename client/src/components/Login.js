@@ -20,7 +20,7 @@ class Login extends React.Component {
 
   login = e => {
     e.preventDefault();
-    //1. axios call 
+    //1. axios call http://localhost:5000/api/login
   };
 
   render() {

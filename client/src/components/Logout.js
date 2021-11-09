@@ -5,6 +5,7 @@ import axios from 'axios';
 
 const Logout = (props)=> {
     const {push} = useHistory();
+    
     useEffect(()=> {
         const token = localStorage.getItem("token");
 

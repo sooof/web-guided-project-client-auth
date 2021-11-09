@@ -11,7 +11,7 @@ const Logout = (props)=> {
         const token = localStorage.getItem("token");
 
         axiosWithAuth()
-            .post('http://localhost:5000/api/logout')
+            .post('/logout')
             .then(resp => {
                 localStorage.removeItem('token');
                 push('/login');

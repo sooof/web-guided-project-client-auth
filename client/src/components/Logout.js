@@ -3,7 +3,9 @@ import { useHistory } from 'react-router-dom';
 
 import axios from 'axios';
 
-const Logout = ()=> {
+const Logout = (props)=> {
+    console.log(props.history);
+
     console.log(useHistory());
     useEffect(()=> {
         const token = localStorage.getItem("token");

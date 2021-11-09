@@ -11,8 +11,8 @@ const Logout = ()=> {
             }
         })
         .then(resp => {
+            console.log(useHistory);
             localStorage.removeItem('token');
-            console.log(useHistory());
         })
     }, []);
     return(<div></div>);

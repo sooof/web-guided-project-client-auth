@@ -9,6 +9,7 @@ function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false)
   const isLoggedIn = localStorage.getItem('token');
   const role = localStorage.getItem('role');
+  const username = localStorage.getItem('username');
 
   return (
     <Router>
@@ -21,7 +22,7 @@ function App() {
             <Link to="/logout">Logout</Link>
           </li>
           <li>
-            {localStorage.getItem('role') === 'admin' && <Link to="/logout">Admin</Link> }
+            {role === 'admin' && <Link to="/logout">Admin</Link> }
           </li>
           <li>
             {isLoggedIn && <div>

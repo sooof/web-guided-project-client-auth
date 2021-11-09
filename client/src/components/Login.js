@@ -21,6 +21,7 @@ class Login extends React.Component {
   login = e => {
     e.preventDefault();
     //1. axios call http://localhost:5000/api/login pass in username and password through the body
+    axios.post('http://localhost:5000/api/login')
     //2. if the call is successful: save token in localStorage
     //3. if the call is unsuccessful: console.log error
   };

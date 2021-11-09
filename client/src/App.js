@@ -8,6 +8,7 @@ import GasPrices from './components/GasPrices';
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false)
   const isLoggedIn = localStorage.getItem('token');
+  const role = localStorage.getItem('role');
 
   return (
     <Router>
@@ -18,6 +19,9 @@ function App() {
           </li>
           <li>
             <Link to="/logout">Logout</Link>
+          </li>
+          <li>
+            <Link to="/logout">Admin</Link>
           </li>
           <li>
             {isLoggedIn && <Link to="/protected">Protected Page</Link>}

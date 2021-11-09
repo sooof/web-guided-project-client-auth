@@ -27,7 +27,7 @@ class Login extends React.Component {
       .then(resp=> {
         //2. if the call is successful: save token in localStorage
         localStorage.setItem('token', resp.data.token);
-        console.log(this.props);
+        this.props.history.push('/protected');
       })
       .catch(err=> {
         //3. if the call is unsuccessful: console.log error

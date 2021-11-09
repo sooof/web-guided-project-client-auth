@@ -1,7 +1,10 @@
-import React, { useEffect, useHistory} from "react";
+import React, { useEffect } from "react";
+import { useHistory } from 'react-router-dom';
+
 import axios from 'axios';
 
 const Logout = ()=> {
+    console.log(useHistory());
     useEffect(()=> {
         const token = localStorage.getItem("token");
 
@@ -11,7 +14,6 @@ const Logout = ()=> {
             }
         })
         .then(resp => {
-            console.log(useHistory);
             localStorage.removeItem('token');
         })
     }, []);

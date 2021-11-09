@@ -22,7 +22,7 @@ function App() {
             <Link to="/logout">Logout</Link>
           </li>
           <li>
-            {role === 'admin' && <Link to="/logout">Admin</Link> }
+            {(role === 'admin' && isLoggedIn) && <Link to="/logout">Admin</Link> }
           </li>
           <li>
             {isLoggedIn && <div>

@@ -26,8 +26,9 @@ function App() {
           <li>
             {isLoggedIn && <div>
                 <Link to="/protected">Protected Page</Link>
+                <p>Welcome to the page: {username}</p>
               </div>
-}
+            }
           </li>
         </ul>
         <Switch>

@@ -6,6 +6,8 @@ import Logout from './components/Logout';
 import GasPrices from './components/GasPrices';
 
 function App() {
+  //const  isLoggedIn = false;
+  const  isLoggedIn = localStorage.getItem('token')
   return (
     <Router>
       <div className="App">
@@ -17,7 +19,7 @@ function App() {
             <Link to="/logout">Logout</Link>
           </li>
           <li>
-            <Link to="/protected">Protected Page</Link>
+            {isLoggedIn && <Link to="/protected">Protected Page</Link>}
           </li>
         </ul>
         <Switch>

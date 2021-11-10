@@ -1,7 +1,7 @@
 import React,{useEffect}  from "react";
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-
+import axiosWithAuth from './../utils/axiosWithAuth';
 const Logout = (props)=> {
     console.log("Logout  props = ", props);
     console.log("Logout  props.history = ", props.history );
@@ -9,11 +9,8 @@ const Logout = (props)=> {
     const {push} = useHistory()
     useEffect(() =>{
     const token = localStorage.getItem("token")
-        axios.post('http://localhost:3000/api/logout', {
-        headers: {
-            authorization: token
-            }
-        })
+        axiosWithAuth()
+        .post('http://localhost:3000/api/logout')
         .then(resp => {
             //console.log("Logout  resp = ", resp);
             localStorage.removeItem('token')

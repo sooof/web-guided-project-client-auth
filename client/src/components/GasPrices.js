@@ -1,13 +1,25 @@
 import React from 'react';
 import moment from 'moment';
 import Loader from 'react-loader-spinner';
+import axios from 'axios';
 
 class GasPrices extends React.Component {
   state = {
     gasPrices: []
   };
-  
-
+  componentDidMount() {
+    axios.get('http://localhost:3000/api/data', {
+      headers: {
+        authorization: localStorage.getItem('token')
+      }})
+      .then(resp=>{
+        console.log("GasPrices resp = ", resp);
+      })
+      .catch(err=>{
+        console.log(err);
+      })
+  } 
+ 
   formatData = () => {
     const formattedData = [];
     this.state.gasPrices.forEach((price, index, arr) => {

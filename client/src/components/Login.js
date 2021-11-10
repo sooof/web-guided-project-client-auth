@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useHistory} from 'react';
 import axios from 'axios';
 
 class Login extends React.Component {
@@ -24,8 +24,10 @@ class Login extends React.Component {
     axios.post('http://localhost:3000/api/login', this.state.credentials)
       .then(resp=>{
       //2. if the call is successful: save token in localStorage
-      console.log(resp);
+      //console.log(resp);
       localStorage.setItem('token', resp.data.token);
+      this.props.history.push('/protected');
+      // console.log(this.props)
       })
       .catch(err=>{
       //3. if the call is unsuccessful: console.log error

@@ -9,6 +9,8 @@ class GasPrices extends React.Component {
     gasPrices: []
   };
   componentDidMount() {
+    console.log("GasPrices : componentDidMount = ", this.props)
+
     axiosWithAuth()
       .get('/data')
       .then(resp=>{

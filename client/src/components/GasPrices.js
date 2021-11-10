@@ -13,7 +13,11 @@ class GasPrices extends React.Component {
         authorization: localStorage.getItem('token')
       }})
       .then(resp=>{
-        console.log("GasPrices resp = ", resp);
+        //console.log("GasPrices resp = ", resp);
+        this.setState({
+          ...this.state,
+          gasPrices: resp.data.data
+        });
       })
       .catch(err=>{
         console.log(err);

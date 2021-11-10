@@ -10,7 +10,7 @@ class GasPrices extends React.Component {
   };
   componentDidMount() {
     axiosWithAuth()
-      .get('http://localhost:3000/api/data')
+      .get('/data')
       .then(resp=>{
         //console.log("GasPrices resp = ", resp);
         this.setState({

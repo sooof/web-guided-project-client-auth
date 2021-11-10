@@ -3,9 +3,9 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import axiosWithAuth from './../utils/axiosWithAuth';
 const Logout = (props)=> {
-    console.log("Logout  props = ", props);
-    console.log("Logout  props.history = ", props.history );
-    console.log("Logout  history = ", useHistory());
+    // console.log("Logout  props = ", props);
+    // console.log("Logout  props.history = ", props.history );
+    // console.log("Logout  history = ", useHistory());
     const {push} = useHistory()
     useEffect(() =>{
     const token = localStorage.getItem("token")
@@ -14,6 +14,8 @@ const Logout = (props)=> {
         .then(resp => {
             //console.log("Logout  resp = ", resp);
             localStorage.removeItem('token')
+            localStorage.removeItem('role')
+            localStorage.removeItem('username')
             push('./login')
         })
         .catch(err => {

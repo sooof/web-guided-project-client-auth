@@ -28,6 +28,7 @@ class Login extends React.Component {
         console.log(resp);
         const { token } = resp.data;
         localStorage.setItem("token", token);
+        this.props.history.push('/protected');
       })
       .catch(err => {
         console.log(err);

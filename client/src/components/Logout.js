@@ -1,17 +1,21 @@
 import React, { useEffect } from "react";
-import axios from 'axios';
+import axiosWithAuth from './../utils/axiosWithAuth';
 
 const Logout = (props)=> {
+    const { push } = props.history;
 
     useEffect(()=> {
         // const token = localStorage.getItem("token");
-        axios.post('http://localhost:5000/api/logout', {}, {
-            headers:{
-                authorization: localStorage.getItem('token')
-            }
-        }).then(resp => {
+        // axios.post('http://localhost:5000/api/logout', {}, {
+        //     headers:{
+        //         authorization: localStorage.getItem('token')
+        //     }
+        // })
+        axiosWithAuth()
+        .post('http://localhost:5000/api/logout')
+        .then(resp => {
                 localStorage.removeItem('token');
-                props.history.push('/login');
+                push('/login');
             });
     }, []);
     return(<div></div>);

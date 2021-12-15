@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from 'axios';
 
-const Logout = ()=> {
+const Logout = (props)=> {
 
     useEffect(()=> {
         // const token = localStorage.getItem("token");
@@ -11,7 +11,7 @@ const Logout = ()=> {
             }
         }).then(resp => {
                 localStorage.removeItem('token');
-                // push('/login');
+                props.history.push('/login');
             });
     }, []);
     return(<div></div>);

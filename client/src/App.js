@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 import PrivateRoute from './components/PrivateRoute';
@@ -8,8 +8,8 @@ import Logout from './components/Logout';
 import GasPrices from './components/GasPrices';
 
 function App() {
-  // const [isLoggedIn, setLogin] = useState(false);
-  const isLoggedIn = localStorage.getItem('token');
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  // const isLoggedIn = localStorage.getItem('token');
   return (
     <Router>
       <div className="App">
@@ -31,11 +31,12 @@ function App() {
           </div>
         </ul>
         <Switch>
-        <PrivateRoute exact path="/protected" component={GasPrices} />
+          <PrivateRoute exact path="/protected" component={GasPrices} />
+          {/* <Route exact path="/protected" component={GasPrices} /> */}
           <Route path="/logout" component={Logout} />
           <Route path="/login" component={Login} />
           <Route path="/" component={Login} />    
-        </Switch>
+        </Switch> 
       </div>
     </Router>
   );

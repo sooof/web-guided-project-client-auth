@@ -19,6 +19,8 @@ const Logout = (props)=> {
         .post('/logout')
         .then(resp => {
                 localStorage.removeItem('token');
+                localStorage.removeItem('role');
+                localStorage.removeItem('username');
                 push('/login');
             });
     }, []);

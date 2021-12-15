@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
+import PrivateRoute from './components/PrivateRoute';
+
 import Login from './components/Login';
 import Logout from './components/Logout';
 import GasPrices from './components/GasPrices';
@@ -19,11 +21,17 @@ function App() {
             <Link to="/logout">Logout</Link>
           </li>
           <li>
+          { (isLoggedIn && localStorage.getItem("role") === "admin") && <Link to="/protected">Admin</Link>}
+          </li>
+          <li>
             { isLoggedIn && <Link to="/protected">Protected Page</Link>}
           </li>
+          <div>
+            {isLoggedIn && <p>Welcome {localStorage.getItem('username')}</p>}
+          </div>
         </ul>
         <Switch>
-          <Route exact path="/protected" component={GasPrices} />
+        <PrivateRoute exact path="/protected" component={GasPrices} />
           <Route path="/logout" component={Logout} />
           <Route path="/login" component={Login} />
           <Route path="/" component={Login} />    
